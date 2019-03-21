@@ -62,11 +62,14 @@ class App extends React.Component {
     this.setState({ list: copiedList });
   };
 
-  clearCompleted = () => {
+  clearCompleted = e => {
+    e.preventDefault();
     // use filter
     // looping over all the items inside of `this.state.list`
+    let list = this.state.list.filter(item => item.completed === false);
     // filter out any items, who's item.completed === true
     // set your state with your new filtered list.
+    this.setState({ list });
   };
 
   render() {
@@ -77,14 +80,13 @@ class App extends React.Component {
           <h1>Todo List</h1>
           <TodoForm addItem={this.addItem} />
         </div>
-        <TodoList
-          list={this.state.list}
-          toggleItem={this.toggleItem}
-        />
-        <button className="clear-btn" onClick={this.clearCompleted}>Clear Completed</button>
+        <TodoList list={this.state.list} toggleItem={this.toggleItem} />
+        <button className="clear-btn" onClick={this.clearCompleted}>
+          Clear Completed
+        </button>
       </div>
     );
-  };
+  }
 }
 
 export default App;

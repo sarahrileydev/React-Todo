@@ -54,6 +54,7 @@ h1 {
   text-align: left;
   margin: 4px 0;
   padding-left: 8px;
+  border-radius: 3px;
 }
 
 .item.completed {
@@ -83,6 +84,7 @@ button {
   color: white;
   font-size: 16px;
   padding: 6px 14px;
+  border-radius: 3px;
 }
 
 input::placeholder {
